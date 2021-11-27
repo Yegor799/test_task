@@ -1,0 +1,27 @@
+/* .App {
+   display: flex;
+  flex-wrap: wrap;
+} */
+
+.isActive {
+  background-color: crimson;
+}
+
+/* .App-item {
+  width: 50px;
+  height: 50px;
+  border: 1px solid red;
+}   */
+
+.field {
+  margin-top: 30px;
+  display: inline-block;
+}
+.field .row {
+  display: flex;
+}
+.square {
+  width: 50px;
+  height: 50px;
+  border: 0.5px solid black;
+}
