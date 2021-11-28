@@ -1,0 +1,17 @@
+.isActive {
+  background-color: rgb(12, 157, 241);
+}
+
+.field {
+  margin-top: 50px;
+  display: inline-block;
+}
+
+.row {
+  display: flex;
+}
+.square {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
