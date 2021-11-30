@@ -11,15 +11,7 @@ export default function GameMode() {
   const [isSelected, setIsSelected] = useState(false);
   const [row, setRow] = useState(null);
   const [col, setCol] = useState(null);
-
-  async function getData() {
-    try {
-      const response = await axios.get("http://demo1030918.mockable.io/");
-      setGameData(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  const [total, setTotal] = useState([]);
 
   useEffect(() => {
     getData();
@@ -31,6 +23,19 @@ export default function GameMode() {
     }
     setRowAmount(gameData[mode].field);
   }, [gameData, mode]);
+
+  useEffect(() => {
+    setTotal((prev) => [...prev, { row: row, col: col }]);
+  }, [col, row]);
+
+  async function getData() {
+    try {
+      const response = await axios.get("http://demo1030918.mockable.io/");
+      setGameData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   const onChange = (e) => {
     e.preventDefault();
@@ -69,10 +74,10 @@ export default function GameMode() {
         <button type="submit">Start</button>
       </form>
       <div className="squares">
-        {isSelected && <Field rows={rowAmount} />}
         {isSelected && (
-          <HoverSquares setRow={onRowChange} setCol={onColChange} />
+          <Field rows={rowAmount} setRow={onRowChange} setCol={onColChange} />
         )}
+        {isSelected && <HoverSquares total={total} />}
       </div>
     </div>
   );

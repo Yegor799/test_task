@@ -9,8 +9,6 @@ export default function Field({ rows, setRow, setCol }) {
 
   const rowAmount = rows;
 
-  console.log(setRow);
-
   const onRowChange = (e) => {
     setRow(e.target.id);
   };
