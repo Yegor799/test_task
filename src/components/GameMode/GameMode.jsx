@@ -7,7 +7,7 @@ import HoverSquares from "../HoverSquares/HoverSquares";
 export default function GameMode() {
   const [gameData, setGameData] = useState({});
   const [mode, setMode] = useState(null);
-  const [rowAmount, setRowAmount] = useState(null);
+  const [rowAmount, setRowAmount] = useState(5);
   const [isSelected, setIsSelected] = useState(false);
   const [row, setRow] = useState(null);
   const [col, setCol] = useState(null);
@@ -41,6 +41,7 @@ export default function GameMode() {
     e.preventDefault();
     setMode(e.target.value);
     setIsSelected(false);
+    setTotal([]);
   };
 
   const onSubmit = (e) => {
